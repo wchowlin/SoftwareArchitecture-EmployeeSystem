@@ -20,7 +20,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   async deleteEmployee(employeeId) {
-    console.log(employeeId);
     await this.api.deleteEmployee(employeeId);
     await this.getEmployees();
   }
