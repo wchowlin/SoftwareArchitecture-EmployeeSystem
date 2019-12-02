@@ -1,3 +1,17 @@
 <div class="container">
   <h2>List of Employees</h2>
+  <div class="list-group">
+    <a *ngFor="let employee of employees" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ employee.firstname }} {{ employee.lastname }} </h5>
+      </div>
+      <p class="mb-1"><b>Address:</b> {{ employee.address }}</p>
+      <p class="mb-1"><b>City:</b> {{ employee.city }}</p>
+      <p class="mb-1"><b>Country:</b> {{ employee.country }}</p>
+      <p class="mb-1"><b>Postal Code:</b> {{ employee.postalcode }}</p>
+      <p class="mb-1"><b>Email:</b> {{ employee.email }}</p>
+      <p class="mb-1"><b>Base Salary:</b> {{ employee.basesalary }}</p>
+      <button type="button" (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+    </a>
+  </div>
 </div>

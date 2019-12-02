@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from "../api.service";
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
+  public employees
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.getEmployees();
   }
 
+  async getEmployees() {
+    this.employees = await this.api.getEmployees();
+  }
+
+  async deleteEmployee(employeeId) {
+    console.log(employeeId);
+    await this.api.deleteEmployee(employeeId);
+    await this.getEmployees();
+  }
 }
